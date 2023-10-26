@@ -41,7 +41,7 @@ function CamHandler(props){
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    
+
     props.setCapturedImage(imageSrc);
     console.log(imageSrc)
   };
@@ -59,10 +59,11 @@ function CamHandler(props){
       <div className="camSection" >
         <Webcam style={{position:'absolute', top: '-9999px', left:'-9999px'}}muted={false} screenshotFormat='image/png' ref={webcamRef} onCanPlay={getVideoSrc} />
       <div>
-        
+
       <button onClick={capture}>Capture Image</button>
       <button onClick={clearCapture}>Clear Image</button>
       <button onClick={toggleCapture}>
+          {isCapturing ? 'Pause Capture' : 'Resume Capture'}
           {isCapturing ? 'Pause Capture' : 'Resume Capture'}
       </button>
       </div>
